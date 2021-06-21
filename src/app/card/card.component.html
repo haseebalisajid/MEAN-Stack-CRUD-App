@@ -1,0 +1,20 @@
+<div class="cards" *ngIf="users.length">
+    <div class="card" *ngFor="let user of users" >
+        <img class="card-img-top" src="{{user.avatar}}" alt="Card image cap">
+        <hr />
+        <div class="card-body">
+            <h5 class="card-title">{{user.name}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><span [ngStyle]="{'font-weight':'bold'}">Email: </span>{{user.email}}</li>
+            <li class="list-group-item"><span [ngStyle]="{'font-weight':'bold'}">Role: </span>{{user.role}}</li>
+        </ul>
+        <div class="card-body">
+            <button class="btn btn-success btn-block btnn" (click)="editUser(user._id)">Update User</button>
+            <button class="btn btn-danger btn-block" (click)="deleteUser(user._id)">Delete User</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="!users.length">
+    <h1 [ngStyle]="{'text-align':'center'}">No data</h1>
+</div>
